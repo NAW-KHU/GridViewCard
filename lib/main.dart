@@ -9,34 +9,78 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> images = [
-      'assets/images/apples.jpeg',
-      'assets/images/bananas.jpeg',
-      'assets/images/cherries.jpeg',
-      'assets/images/grapes.png',
-      'assets/images/oranges.jpeg',
-      'assets/images/peaches.jpeg',
-      'assets/images/Plum.jpg',
-      'assets/images/rasberries.jpeg',
-      'assets/images/strawberries.jpeg',
-    ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        
         appBar: AppBar(
-          title: const Text('GridView'),
-          backgroundColor: Colors.blueAccent,
+          leading: const Icon(Icons.menu),
+          title: const Text(
+            'Friend List',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Times New Roman',
+            ),
+          ),
+          backgroundColor: Colors.green[500],
         ),
-        body: Center(
-            child: GridView.builder(
-                itemCount: images.length, //to fix RangeError(index)
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,//column counts
-                  crossAxisSpacing: 10.0,//column spacing
-                  mainAxisSpacing: 5.0,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            // Expanded(
+              Card(
+                color: Colors.yellow[50],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  textDirection: null,
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.asset(
+                        'assets/images/cherries.jpeg',
+                        height: 90,
+                        width: 90,
+                        scale: 1.5,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Container(
+                      // width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0)),
+                    ),
+                    const Column(
+                      // mainAxisSize: MainAxisSize.max,
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      textDirection: TextDirection.ltr,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hello!',
+                          textAlign: TextAlign.left,
+                          // maxLines: 2,
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                        ),
+                        Text(
+                          'I am Cherry, Wanna be your friend!',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                itemBuilder: (BuildContext context, int index) {
-                  return Image.asset(images[index]);
-                })),
+              ),
+
+            // ),
+         ],
+        ),
       ),
     );
   }
