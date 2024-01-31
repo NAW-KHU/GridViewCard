@@ -96,11 +96,13 @@ List<String> image = [
   'assets/images/woman1.jpeg',
   'assets/images/man3.jpg',
   'assets/images/woman2.jpeg',
-  'assets/images/woman3.png'
-];
+  'assets/images/woman3.png',
+  'assets/images/woman3.png',
+  'assets/images/woman3.png',
+]; 
 
 // List<String> greeting = ['Hello'];
-List<String> name = ['Jimmy', 'Kelvin', 'Delia', 'Franklin', 'Rosy', 'Anna'];
+List<String> name = ['Jimmy', 'Kelvin', 'Delia', 'Franklin', 'Rosy', 'Anna', 'Debora', 'Clara'];
 
 class _MyAppState extends State<MyApp> {
   @override
@@ -130,6 +132,7 @@ class _MyAppState extends State<MyApp> {
   Widget card(String image, String name, BuildContext context) {
     return Card(
       color: Colors.yellow[50],
+      child: Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         textDirection: null,
@@ -154,7 +157,7 @@ class _MyAppState extends State<MyApp> {
             // mainAxisAlignment: MainAxisAlignment.start,
             textDirection: TextDirection.ltr,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:<Widget> [
+            children: <Widget>[
               Text(
                 name,
                 textAlign: TextAlign.left,
@@ -174,6 +177,11 @@ class _MyAppState extends State<MyApp> {
           ),
         ],
       ),
+      
+      
+      
+      )
+      
     );
   }
 }
