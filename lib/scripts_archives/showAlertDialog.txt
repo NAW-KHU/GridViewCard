@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MaterialApp(home: showAlertDialog()));
+}
+
+// ignore: camel_case_types
+class showAlertDialog extends StatefulWidget {
+  const showAlertDialog({super.key});
+
+  // const showAlertDialog(required BuildContext context, {super.key, required context});
+
+  @override
+  State<showAlertDialog> createState() => _showAlertDialogState();
+}
+
+// ignore: camel_case_types
+class _showAlertDialogState extends State<showAlertDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: const Icon(Icons.menu),
+        title: const Text('Flutter Dialog Box'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute<void>(builder: (BuildContext context) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: const Text('My Page'),
+                ),
+                body: Center(
+                  child: TextButton(
+                    child: const Text('POP'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              );
+            }));
+          },
+          child: const Text('Go to Another page'),
+        ),
+      ),
+    );
+  }
+}
