@@ -1,0 +1,86 @@
+//Navigation
+// How to open New Page and Back without context in flutter
+//add get package
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+void main() {
+  runApp(const Myapp());
+}
+
+class Myapp extends StatelessWidget {
+  const Myapp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const GetMaterialApp(
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home Page"),
+      ),
+      body: Container(
+        alignment: Alignment.topCenter,
+        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.to(const NewPage());
+                },
+                child: const Text("Go to Next Page")),
+            ElevatedButton(
+                onPressed: () {
+                  Get.off(const NewPage());
+                },
+                child: const Text("Go to Next Page and Clear History")),
+            ElevatedButton(
+                onPressed: () {
+                  Get.offAll(const NewPage());
+                },
+                child: const Text("Go to Next Page and Clear All History")
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NewPage extends StatelessWidget {
+  const NewPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Next Page"),
+      ),
+      body: Container(
+        alignment: Alignment.topCenter,
+        padding: const EdgeInsets.all(30),
+        child: ElevatedButton(
+          onPressed: () {
+            Get.back();
+          },
+          child: const Text("Go Back"),
+        ),
+      ),
+    );
+  }
+}
