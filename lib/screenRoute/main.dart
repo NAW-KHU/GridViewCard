@@ -1,7 +1,7 @@
 //Navigation.pop()
 import 'package:flutter/material.dart';
-import 'package:grid_view_card/firstScreen.dart';
-import 'package:grid_view_card/secondScreen.dart';
+import '../screenRoute/firstScreen.dart';
+import '../screenRoute/secondSceen.dart';
 
 void main() {
   runApp(MaterialApp(
